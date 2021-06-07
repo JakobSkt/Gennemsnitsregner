@@ -20,3 +20,11 @@ p {
 	margin-left: 0;
 	cursor: pointer;
 }
+
+.grades {
+	margin-bottom: 2vh;
+}
+
+.columns div {
+	margin-left: 2vw;
+}
