@@ -26,7 +26,7 @@ function schoolSelect(selected) {
 			schoolId = 3
 			break;
 	}
-	dynPage1()
+	dynPage1('A')
 }
 
 function remove(page) {
@@ -35,7 +35,8 @@ function remove(page) {
 	setTimeout(function(){ el.remove(); }, 500);
 }
 
-function dynPage1() {
+function dynPage1(fag) {
+	let title= fag.toUpperCase()
 	let body = document.body
 	const el = document.createElement('section')
 	el.innerHTML = `
@@ -52,11 +53,11 @@ function dynPage1() {
   	</div>
     <div class="">
      	<h1 class="title">${school.toUpperCase()}</h1>
-		<p class="subtitle">Nu skal vi i gang. Hvor mange A-fag har du?</p>
+		<p class="subtitle">Nu skal vi i gang. Hvor mange ${title}-fag har du?</p>
 
 		<div class="select is-rounded">
 		  <select id="aGradesSelect">
-		    <option>Antal A-fag</option>
+		    <option>Antal ${title}-fag</option>
 		    <option>3</option>
 		    <option>4</option>
 		    <option>5</option>
@@ -119,7 +120,7 @@ function dynPage2() {
 						  Både skriftligt og mundtligt?
 						</label>
 
-				   <input class="input grades" id="samlet${i+1}" placeholder="Samlet karakter">
+				   <input class="input grades" id="samlet${i+1}Input" placeholder="Samlet karakter">
 				 </div>  `;
 		  detail.className = `column${i+1}`
 
@@ -133,12 +134,15 @@ function handleSamlet(index) {
 	const element = document.querySelector('#samlet' + index)
 	const column = document.querySelector('.column' + index)
 
+
 		if(element.checked) {
+			document.querySelector('#samlet' + index + 'Input').setAttribute('placeholder', 'Skriftligt karakter')
+
 			const input = document.createElement('input')
 
 		  	input.className = `input grades ekstra`
 		  	input.id = `ekstra${index}`
-		  	input.placeholder = `Ekstra karakter`
+		  	input.placeholder = `Mundtligt karakter`
 
 			column.appendChild(input)
 
@@ -147,15 +151,14 @@ function handleSamlet(index) {
 			console.log('not cheked')
 
 			const ekstra = document.querySelector('#ekstra' + index)
+
 			if(ekstra) {
+
 				ekstra.remove()
+				document.querySelector('#samlet' + index + 'Input').setAttribute('placeholder', 'Samlet karakter')
 			} else {
+
 				console.log('no ekstra input')
-			}
-			
-		}
-
-		  
-
-		  
+			}	
+		}		  
 }
