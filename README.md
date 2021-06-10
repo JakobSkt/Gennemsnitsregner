@@ -7,4 +7,4 @@ Hvis ikke man misser en karakter eller en korrekt vægtning, glemmer man hvor la
 
 Programmet er udviklet med [bulma](https://Bulma.io/), for en responsiv og moderne hjemmeside
 
-Iformationer om vægtning er fra [studienet](https://www.studienet.dk/guide-til-gymnasiet/karakterer-bonus-og-gennemsnit)
+Informationer om vægtning er fra [studienet](https://www.studienet.dk/guide-til-gymnasiet/karakterer-bonus-og-gennemsnit)
